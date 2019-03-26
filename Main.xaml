@@ -323,13 +323,37 @@
           <av:PointCollection x:Key="ConnectorLocation">300,178.5 300,228.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence sap:VirtualizedContainerService.HintSize="438,652" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="ui:Window" Name="wRobotTray" />
+        </Sequence.Variables>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <ui:GetActiveWindow ApplicationWindow="[wRobotTray]" DisplayName="Get Active Window" sap:VirtualizedContainerService.HintSize="416,366" sap2010:WorkflowViewState.IdRef="GetActiveWindow_2">
+          <ui:GetActiveWindow.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,288" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeCode ContinueOnError="{x:Null}" Code="w.Minimize" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="314,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                  <ui:InvokeCode.Arguments>
+                    <InArgument x:TypeArguments="ui:Window" x:Key="w">[wRobotTray]</InArgument>
+                  </ui:InvokeCode.Arguments>
+                </ui:InvokeCode>
+              </Sequence>
+            </ActivityAction>
+          </ui:GetActiveWindow.Body>
+        </ui:GetActiveWindow>
+        <Assign sap:VirtualizedContainerService.HintSize="416,60" sap2010:WorkflowViewState.IdRef="Assign_1">
           <Assign.To>
             <OutArgument x:TypeArguments="ui:GenericValue">[nextStepNumber]</OutArgument>
           </Assign.To>
@@ -337,7 +361,7 @@
             <InArgument x:TypeArguments="ui:GenericValue">["1"]</InArgument>
           </Assign.Value>
         </Assign>
-        <p:BuildCollection x:TypeArguments="x:String" DisplayName="Build collection" sap:VirtualizedContainerService.HintSize="242,22" sap2010:WorkflowViewState.IdRef="BuildCollection`1_1" Result="[Instructions]" />
+        <p:BuildCollection x:TypeArguments="x:String" DisplayName="Build collection" sap:VirtualizedContainerService.HintSize="416,22" sap2010:WorkflowViewState.IdRef="BuildCollection`1_1" Result="[Instructions]" />
       </Sequence>
       <FlowStep.Next>
         <x:Reference>__ReferenceID2</x:Reference>
