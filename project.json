@@ -7,11 +7,12 @@
     "UiPath.Excel.Activities": "[2.5.2]",
     "UiPath.Mail.Activities": "[1.3.0]",
     "UiPath.ComputerVision.Activities": "[1.1.0-alpha.243957]",
-    "Microsoft.Activities": "[1.0.1]"
+    "Microsoft.Activities": "[1.0.1]",
+    "UiPath.PDF.Activities": "[1.3.1]"
   },
   "schemaVersion": "3.2",
   "studioVersion": "19.3.0.0",
-  "projectVersion": "1.0.7",
+  "projectVersion": "1.0.8",
   "runtimeOptions": {
     "autoDispose": false,
     "excludedLoggedData": [

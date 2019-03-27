@@ -83,7 +83,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke PartsOfSpeech workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Instructions\PartsOfSpeech.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="Text">[instruction]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="Text">1. Click on the Manage Packages icon on the ribbon</InArgument>
           <OutArgument x:TypeArguments="sco:Collection(x:String)" x:Key="Verbs">[verbs]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
