@@ -3,20 +3,23 @@
   "description": "RPA aimed at following basic instuctions, using numbered list of steps to perform actions e.g. https://forum.uipath.com/t/how-to-add-the-uipath-beta-activity-feed/96314",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.System.Activities": "[19.3.0]",
-    "UiPath.Excel.Activities": "[2.5.2]",
-    "UiPath.Mail.Activities": "[1.3.0]",
-    "UiPath.ComputerVision.Activities": "[1.1.0-alpha.243957]",
     "Microsoft.Activities": "[1.0.1]",
-    "UiPath.PDF.Activities": "[1.3.1]",
-    "UiPathTeam.AttendedRobotStatus.Activities": "[1.0.30]",
-    "UiPath.GSuite.Activities": "[1.0.7011.40473]"
+    "UiPath.Cognitive.Activities": "2.2.1",
+    "UiPath.ComputerVision.Activities": "[1.1.0-alpha.243957]",
+    "UiPath.Excel.Activities": "[2.5.3]",
+    "UiPath.GSuite.Activities": "[1.0.7033.30288]",
+    "UiPath.IntelligentOCR.Activities": "2.0.0",
+    "UiPath.Mail.Activities": "[1.4.0]",
+    "UiPath.PDF.Activities": "[2.0.0]",
+    "UiPath.System.Activities": "[19.4.0]",
+    "UiPathTeam.AttendedRobotStatus.Activities": "[1.0.30]"
   },
   "schemaVersion": "3.2",
   "studioVersion": "19.3.0.0",
-  "projectVersion": "1.0.8",
+  "projectVersion": "1.0.9",
   "runtimeOptions": {
     "autoDispose": false,
+    "isPausable": true,
     "excludedLoggedData": [
       "Private:*",
       "*password*"
@@ -30,5 +33,6 @@
   "arguments": {
     "input": [],
     "output": []
-  }
+  },
+  "webServices": []
 }
