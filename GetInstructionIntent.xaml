@@ -175,7 +175,7 @@
         <OutArgument x:TypeArguments="x:String">[Subject]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[sbSubject.ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String">[sbSubject.ToString.TrimEnd]</InArgument>
       </Assign.Value>
     </Assign>
   </Sequence>
