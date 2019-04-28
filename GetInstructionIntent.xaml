@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetInstructionIntent" this:GetInstructionIntent.InstructionText="1. Click on the Manage Packages icon on the ribbon" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cognitive/text/analysis" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetInstructionIntent" this:GetInstructionIntent.InstructionText="2. In the Manage Packages window, click on the Settings. The package sources are displayed." xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cognitive/text/analysis" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="InstructionText" Type="InArgument(x:String)" />
     <x:Property Name="Action" Type="InOutArgument(x:String)" />
@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>576,1196</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>606,1092</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -34,6 +34,7 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>UiPath.Cognitive.Text.Analysis</x:String>
       <x:String>System.Text</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -64,7 +65,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetInstructionIntent" sap:VirtualizedContainerService.HintSize="536,1116" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetInstructionIntent" sap:VirtualizedContainerService.HintSize="566,1012" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(p:StanfordCoreNlpSentence)" Name="sentences" />
       <Variable x:TypeArguments="p:StanfordCoreNlpSentence" Name="sentence" />
@@ -75,8 +76,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <p:StanfordCoreNlpTextAnalysis Error="{x:Null}" Language="{x:Null}" Password="{x:Null}" RawResult="{x:Null}" Username="{x:Null}" AnalysisType="Sentiment" DisplayName="Text Analysis" sap:VirtualizedContainerService.HintSize="514,60" sap2010:WorkflowViewState.IdRef="StanfordCoreNlpTextAnalysis_1" Key="key" Sentences="[sentences]" ServiceUrl="http://localhost:9000" Text="[InstructionText]" TextLang="en" />
-    <If Condition="[sentences.Count&gt;1]" sap:VirtualizedContainerService.HintSize="514,208" sap2010:WorkflowViewState.IdRef="If_1">
+    <p:StanfordCoreNlpTextAnalysis Error="{x:Null}" Language="{x:Null}" Password="{x:Null}" RawResult="{x:Null}" Username="{x:Null}" AnalysisType="Sentiment" DisplayName="Text Analysis" sap:VirtualizedContainerService.HintSize="544,60" sap2010:WorkflowViewState.IdRef="StanfordCoreNlpTextAnalysis_1" Key="key" Sentences="[sentences]" ServiceUrl="http://localhost:9000" Text="[InstructionText]" TextLang="en" />
+    <If Condition="[sentences.Count&gt;1]" sap:VirtualizedContainerService.HintSize="544,208" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_1">
           <Assign.To>
@@ -98,79 +99,109 @@
         </Assign>
       </If.Else>
     </If>
-    <ui:ForEach x:TypeArguments="p:StanfordCoreNlpToken" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="514,544" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[sentence.Tokens]">
+    <ui:ForEach x:TypeArguments="p:StanfordCoreNlpToken" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="544,440" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[sentence.Tokens]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="p:StanfordCoreNlpToken">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="p:StanfordCoreNlpToken" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="498,410" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="498,306" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[item.POS]" sap:VirtualizedContainerService.HintSize="476,286" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-              <Assign x:Key="VB" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[Action]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[item.Word]</InArgument>
-                </Assign.Value>
-              </Assign>
-              <Sequence x:Key="NNP" sap:VirtualizedContainerService.HintSize="264,284" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[item.POS]" sap:VirtualizedContainerService.HintSize="476,182" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <Sequence x:Key="VB" sap:VirtualizedContainerService.HintSize="264,184" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                   <Assign.To>
-                    <OutArgument x:TypeArguments="st:StringBuilder">[sbSubject]</OutArgument>
+                    <OutArgument x:TypeArguments="x:String">[Action]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="st:StringBuilder">[sbSubject.Append(item.Word)]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_7">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="st:StringBuilder">[sbSubject]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="st:StringBuilder">[sbSubject.Append(" ")]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[item.Word]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
-              <Sequence x:Key="NNS" sap:VirtualizedContainerService.HintSize="264,284" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence x:Key="NNP" sap:VirtualizedContainerService.HintSize="486,556" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="st:StringBuilder">[sbSubject]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="st:StringBuilder">[sbSubject.Append(item.Word)]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_8">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="st:StringBuilder">[sbSubject]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="st:StringBuilder">[sbSubject.Append(" ")]</InArgument>
-                  </Assign.Value>
-                </Assign>
+                <If Condition="[Action&lt;&gt;string.Empty]" sap:VirtualizedContainerService.HintSize="464,432" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="264,284" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="st:StringBuilder">[sbSubject]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="st:StringBuilder">[sbSubject.Append(item.Word)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="st:StringBuilder">[sbSubject]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="st:StringBuilder">[sbSubject.Append(" ")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Then>
+                </If>
+              </Sequence>
+              <Sequence x:Key="NNS" sap:VirtualizedContainerService.HintSize="486,556" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[Action&lt;&gt;string.Empty]" sap:VirtualizedContainerService.HintSize="464,432" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="264,284" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="st:StringBuilder">[sbSubject]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="st:StringBuilder">[sbSubject.Append(item.Word)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="st:StringBuilder">[sbSubject]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="st:StringBuilder">[sbSubject.Append(" ")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Then>
+                </If>
               </Sequence>
             </Switch>
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <Assign sap:VirtualizedContainerService.HintSize="514,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign sap:VirtualizedContainerService.HintSize="544,60" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[Subject]</OutArgument>
       </Assign.To>

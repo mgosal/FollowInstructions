@@ -60,9 +60,6 @@
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="UnitTestClickSomeText" sap:VirtualizedContainerService.HintSize="614,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
-    <Flowchart.Variables>
-      <Variable x:TypeArguments="ui:Window" Name="window" />
-    </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
