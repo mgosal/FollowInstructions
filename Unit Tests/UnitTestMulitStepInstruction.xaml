@@ -68,6 +68,7 @@
       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="click &quot;Manage Packages&quot;" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ClickSomeText.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="TextToClick">Manage Packages</InArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="ActionResult" />
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -102,7 +103,8 @@
               </sap:WorkflowViewStateService.ViewState>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="click &quot;Settings&quot;" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ClickSomeText.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="TextToClick">Settings</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="TextToClick">Manage Packages</InArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="ActionResult" />
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -137,6 +139,7 @@
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="click &quot;Cancel&quot;" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ClickSomeText.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="x:String" x:Key="TextToClick">Cancel</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="ActionResult" />
                         </ui:InvokeWorkflowFile.Arguments>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
